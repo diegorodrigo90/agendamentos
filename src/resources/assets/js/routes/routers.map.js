@@ -12,7 +12,9 @@ import router from '@/routes';
 const guest = async (to, from, next) => {
 
 	if (store.state.auth.authenticated) {
-		return router.push({ name: 'dashboard' }).catch(err => {});
+		return router.push({
+			name: 'dashboard'
+		}).catch(err => {});
 	}
 
 	return next(); // all is fine
@@ -25,13 +27,11 @@ export default [
 	{
 		path:      '/',
 		component: SiteComponent,
-		children:  [
-			{
-				path:      '',
-				component: HomePageComponent,
-				name:      'home'
-			}
-		]
+		children:  [{
+			path:      '',
+			component: HomePageComponent,
+			name:      'home'
+		}]
 	},
 
 	/**
@@ -55,13 +55,11 @@ export default [
 		meta:      {
 			requiresAuth: true,
 		},
-		children: [
-			{
-				path:      '',
-				component: DashboardComponent,
-				name:      'dashboard'
-			}
-		]
+		children: [{
+			path:      '',
+			component: DashboardComponent,
+			name:      'dashboard'
+		}]
 	},
 
 	// Rota 404

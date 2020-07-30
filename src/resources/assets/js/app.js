@@ -17,7 +17,7 @@ Vue.use(VueSwal);
  * Cria os componentes globais
  */
 Vue.component(
-	'preloader-component',
+	'PreloaderComponent',
 	require('@/components/layouts/PreloaderComponent').default
 );
 // Instância do Vue JS, e seletor
