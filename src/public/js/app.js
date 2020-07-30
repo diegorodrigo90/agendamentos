@@ -1967,6 +1967,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   computed: {
     user: function user() {
@@ -1975,10 +1983,10 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     logout: function logout() {
-      this.$store.dispatch("logout");
-      this.$snotify.success("Sucesso ao deslogar", "logout...");
+      this.$store.dispatch('logout');
+      this.$snotify.success('Sucesso ao deslogar', 'logout...');
       this.$router.push({
-        name: "login"
+        name: 'login'
       });
     }
   }
@@ -2068,31 +2076,40 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       formData: {
-        email: "",
-        password: ""
+        email: '',
+        password: ''
       },
       errors: {},
-      error: ""
+      error: ''
     };
   },
   methods: {
     login: function login() {
       var _this = this;
 
-      this.$store.dispatch("login", this.formData).then(function () {
-        _this.$snotify.success("Sucesso ao logar", "OK");
+      this.$store.dispatch('login', this.formData).then(function () {
+        _this.$snotify.success('Sucesso ao logar', 'OK');
 
         _this.$router.push({
-          name: "dashboard"
+          name: 'dashboard'
         });
       })["catch"](function (response) {
         _this.error = response.error;
 
-        _this.$snotify.error("Falha...", "Erro");
+        _this.$snotify.error('Falha...', 'Erro');
       });
     }
   }
@@ -2115,10 +2132,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
-    this.$store.dispatch("logout");
-    this.$snotify.success("Sucesso ao deslogar", "logout...");
+    this.$store.dispatch('logout');
+    this.$snotify.success('Sucesso ao deslogar', 'logout...');
     this.$router.push({
-      name: "auth"
+      name: 'auth'
     });
   }
 });
@@ -2164,6 +2181,13 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -6743,7 +6767,7 @@ function toComment(sourceMap) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
- * jQuery JavaScript Library v3.5.1
+ * jQuery JavaScript Library v3.5.0
  * https://jquery.com/
  *
  * Includes Sizzle.js
@@ -6753,7 +6777,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
  * Released under the MIT license
  * https://jquery.org/license
  *
- * Date: 2020-05-04T22:49Z
+ * Date: 2020-04-10T15:07Z
  */
 ( function( global, factory ) {
 
@@ -6891,7 +6915,7 @@ function toType( obj ) {
 
 
 var
-	version = "3.5.1",
+	version = "3.5.0",
 
 	// Define a local copy of jQuery
 	jQuery = function( selector, context ) {
@@ -10988,7 +11012,7 @@ Data.prototype = {
 
 		// If not, create one
 		if ( !value ) {
-			value = {};
+			value = Object.create( null );
 
 			// We can accept data for non-element nodes in modern browsers,
 			// but we should not, see #8335.
@@ -22070,18 +22094,18 @@ var render = function() {
             _c(
               "router-link",
               { staticClass: "nav-link", attrs: { to: { name: "dashboard" } } },
-              [_vm._v("\n                    Dashboard\n                ")]
+              [_vm._v("\n          Dashboard\n        ")]
             ),
             _vm._v(" "),
             _c(
               "router-link",
               { staticClass: "nav-link", attrs: { to: { name: "login" } } },
-              [_vm._v("\n                    Login\n                ")]
+              [_vm._v("\n          Login\n        ")]
             )
           ],
           1
         ),
-        _vm._v("s\n\n            "),
+        _vm._v("s\n\n      "),
         _vm.user
           ? _c("div", [
               _c("div", { staticClass: "dropdown" }, [
@@ -22098,9 +22122,7 @@ var render = function() {
                   },
                   [
                     _vm._v(
-                      "\n                        " +
-                        _vm._s(_vm.user.name) +
-                        "\n                    "
+                      "\n            " + _vm._s(_vm.user.name) + "\n          "
                     )
                   ]
                 ),
@@ -22174,7 +22196,7 @@ var render = function() {
       _c("div", { staticClass: "col-md-8 mx-auto" }, [
         _c("div", { staticClass: "card card-default" }, [
           _c("div", { staticClass: "card-header" }, [
-            _vm._v("\n                    Entrar\n                ")
+            _vm._v("\n          Entrar\n        ")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "card-body" }, [
@@ -22301,11 +22323,7 @@ var staticRenderFns = [
       _c(
         "button",
         { staticClass: "btn btn-success", attrs: { type: "submit" } },
-        [
-          _vm._v(
-            "\n                                Entrar\n                            "
-          )
-        ]
+        [_vm._v("\n                Entrar\n              ")]
       )
     ])
   }
@@ -22368,9 +22386,7 @@ var staticRenderFns = [
       _c("hr"),
       _vm._v(" "),
       _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col" }, [
-          _vm._v("\n          Testando\n        ")
-        ])
+        _c("div", { staticClass: "col" }, [_vm._v("\n      Testando\n    ")])
       ])
     ])
   }
@@ -22399,13 +22415,13 @@ var render = function() {
   return _c(
     "div",
     [
-      _vm._v("\n    #menu\n\n    "),
+      _vm._v("\n  #menu\n\n  "),
       _c("hr"),
       _vm._v(" "),
       _c("router-view"),
       _vm._v(" "),
       _c("hr"),
-      _vm._v("\n\n    #footer\n")
+      _vm._v("\n\n  #footer\n")
     ],
     1
   )
@@ -41043,20 +41059,20 @@ Vue.use(vue_swal__WEBPACK_IMPORTED_MODULE_1___default.a);
  * Cria os componentes globais
  */
 
-Vue.component("preloader-component", __webpack_require__(/*! @/components/layouts/PreloaderComponent */ "./resources/assets/js/components/layouts/PreloaderComponent.vue")["default"]); // Instância do Vue JS, e seletor
+Vue.component('preloader-component', __webpack_require__(/*! @/components/layouts/PreloaderComponent */ "./resources/assets/js/components/layouts/PreloaderComponent.vue")["default"]); // Instância do Vue JS, e seletor
 
 var app = new Vue({
   router: _routes__WEBPACK_IMPORTED_MODULE_2__["default"],
   store: _store__WEBPACK_IMPORTED_MODULE_3__["default"],
-  el: "#app"
+  el: '#app'
 });
-_store__WEBPACK_IMPORTED_MODULE_3__["default"].dispatch("checkLogin").then(function () {
+_store__WEBPACK_IMPORTED_MODULE_3__["default"].dispatch('checkLogin').then(function () {
   return _routes__WEBPACK_IMPORTED_MODULE_2__["default"].push({
-    name: "dashboard"
+    name: 'dashboard'
   });
 })["catch"](function (error) {
   return _routes__WEBPACK_IMPORTED_MODULE_2__["default"].push({
-    name: "login"
+    name: 'login'
   });
 });
 
@@ -41086,7 +41102,7 @@ try {
 
 
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
+window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /**
  * Next we will register the CSRF Token as a common header with Axios so that
  * all outgoing HTTP requests automatically have it attached. This is just
@@ -41096,13 +41112,13 @@ window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 var token = document.head.querySelector('meta[name="csrf-token"]');
 
 if (token) {
-  window.axios.defaults.headers.common["X-CSRF-TOKEN"] = token.content;
+  window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
 } else {
-  console.error("CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token");
+  console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
 }
 
 var tokenAcess = localStorage.getItem(_configs_configs__WEBPACK_IMPORTED_MODULE_0__["ACCESS_TOKEN"]);
-window.axios.defaults.headers.common["Authorization"] = "Bearer ".concat(tokenAcess);
+window.axios.defaults.headers.common['Authorization'] = "Bearer ".concat(tokenAcess);
 
 /***/ }),
 
@@ -41657,8 +41673,8 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "URL_BASE", function() { return URL_BASE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ACCESS_TOKEN", function() { return ACCESS_TOKEN; });
-var URL_BASE = "/api/v1/";
-var ACCESS_TOKEN = "access_token";
+var URL_BASE = '/api/v1/';
+var ACCESS_TOKEN = 'access_token';
 
 /***/ }),
 
@@ -41683,7 +41699,7 @@ __webpack_require__.r(__webpack_exports__);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   routes: _routes_routers_map__WEBPACK_IMPORTED_MODULE_2__["default"],
-  mode: "history"
+  mode: 'history'
 });
 router.beforeEach(function (to, from, next) {
   var requiresAuth = to.matched.some(function (record) {
@@ -41774,43 +41790,43 @@ var guest = /*#__PURE__*/function () {
 
 /* harmony default export */ __webpack_exports__["default"] = ([
 /**
- * Rotas Site
- */
+    * Rotas Site
+    */
 {
-  path: "/",
+  path: '/',
   component: _components_frontend_SiteComponent__WEBPACK_IMPORTED_MODULE_6__["default"],
   children: [{
-    path: "",
+    path: '',
     component: _components_frontend_pages_home_HomePageComponent__WEBPACK_IMPORTED_MODULE_7__["default"],
-    name: "home"
+    name: 'home'
   }]
 },
 /**
- * Rotas Admin
- */
+    * Rotas Admin
+    */
 {
-  path: "/login",
+  path: '/login',
   beforeEnter: guest,
   component: _components_admin_pages_auth_LoginComponent__WEBPACK_IMPORTED_MODULE_3__["default"],
-  name: "login"
+  name: 'login'
 }, {
-  path: "/logout",
+  path: '/logout',
   component: _components_admin_pages_auth_LogoutComponent__WEBPACK_IMPORTED_MODULE_4__["default"],
-  name: "logout"
+  name: 'logout'
 }, {
-  path: "/admin",
+  path: '/admin',
   component: _components_admin_AdminComponent__WEBPACK_IMPORTED_MODULE_1__["default"],
   meta: {
     requiresAuth: true
   },
   children: [{
-    path: "",
+    path: '',
     component: _components_admin_pages_dashboard_DashboardComponent__WEBPACK_IMPORTED_MODULE_2__["default"],
-    name: "dashboard"
+    name: 'dashboard'
   }]
 }, // Rota 404
 {
-  path: "*",
+  path: '*',
   component: _components_frontend_pages_404_Page404__WEBPACK_IMPORTED_MODULE_5__["default"]
 }]);
 
@@ -41863,9 +41879,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _configs_configs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/configs/configs */ "./resources/assets/js/configs/configs.js");
 
 
-var RESOURCE = "auth/";
+var RESOURCE = 'auth/';
 var state = {
-  token: localStorage.getItem(_configs_configs__WEBPACK_IMPORTED_MODULE_1__["ACCESS_TOKEN"]) || "",
+  token: localStorage.getItem(_configs_configs__WEBPACK_IMPORTED_MODULE_1__["ACCESS_TOKEN"]) || '',
   authenticated: !!localStorage.getItem(_configs_configs__WEBPACK_IMPORTED_MODULE_1__["ACCESS_TOKEN"]),
   user: {}
 };
@@ -41889,43 +41905,43 @@ var actions = {
   login: function login(_ref, formData) {
     var commit = _ref.commit,
         dispatch = _ref.dispatch;
-    commit("LOADING", true);
+    commit('LOADING', true);
     return new Promise(function (resolve, reject) {
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("".concat(_configs_configs__WEBPACK_IMPORTED_MODULE_1__["URL_BASE"]).concat(RESOURCE), formData).then(function (response) {
-        commit("AUTH_USER_TOKEN", response.data.access_token);
+        commit('AUTH_USER_TOKEN', response.data.access_token);
         localStorage.setItem(_configs_configs__WEBPACK_IMPORTED_MODULE_1__["ACCESS_TOKEN"], response.data.access_token);
-        axios__WEBPACK_IMPORTED_MODULE_0___default.a.defaults.headers.common["Authorization"] = "Bearer ".concat(response.data.access_token);
-        dispatch("checkLogin")["catch"](function (error) {
-          commit("AUTH_USER_LOGOUT");
+        axios__WEBPACK_IMPORTED_MODULE_0___default.a.defaults.headers.common['Authorization'] = "Bearer ".concat(response.data.access_token);
+        dispatch('checkLogin')["catch"](function (error) {
+          commit('AUTH_USER_LOGOUT');
           reject(error);
         });
         resolve();
       })["catch"](function (error) {
-        commit("AUTH_USER_LOGOUT");
+        commit('AUTH_USER_LOGOUT');
         reject(error);
       })["finally"](function () {
-        return commit("LOADING", false);
+        return commit('LOADING', false);
       });
     });
   },
   logout: function logout(_ref2) {
     var commit = _ref2.commit;
-    commit("AUTH_USER_LOGOUT");
+    commit('AUTH_USER_LOGOUT');
   },
   checkLogin: function checkLogin(_ref3) {
     var commit = _ref3.commit;
     var accessToken = localStorage.getItem(_configs_configs__WEBPACK_IMPORTED_MODULE_1__["ACCESS_TOKEN"]);
     return new Promise(function (resolve, reject) {
       if (!accessToken) {
-        commit("AUTH_USER_LOGOUT");
+        commit('AUTH_USER_LOGOUT');
         return reject();
       }
 
       return axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("".concat(_configs_configs__WEBPACK_IMPORTED_MODULE_1__["URL_BASE"], "me")).then(function (response) {
-        commit("AUTH_USER", response.data);
+        commit('AUTH_USER', response.data);
         return resolve();
       })["catch"](function (error) {
-        commit("AUTH_USER_LOGOUT");
+        commit('AUTH_USER_LOGOUT');
         return reject(error);
       });
     });

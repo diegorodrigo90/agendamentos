@@ -1,16 +1,23 @@
 <template>
-    <div v-show="preloader" class="preloader">
-        <img src="/img/preloader.gif" alt="Preloader..." class="preloader" />
-    </div>
+  <div
+    v-show="preloader"
+    class="preloader"
+  >
+    <img
+      src="/img/preloader.gif"
+      alt="Preloader..."
+      class="preloader"
+    >
+  </div>
 </template>
 
 <script>
 export default {
-    computed: {
-        preloader() {
-            return this.$store.state.preloader.loading;
-        }
-    }
+	computed: {
+		preloader() {
+			return this.$store.state.preloader.loading;
+		}
+	}
 };
 </script>
 

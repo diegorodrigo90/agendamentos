@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "laravel-mix-eslint-config": "^0.1.7"
+  }
+}

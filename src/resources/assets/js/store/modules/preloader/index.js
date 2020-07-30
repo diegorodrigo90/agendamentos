@@ -1,11 +1,11 @@
 export default {
-    state: {
-        loading: false
-    },
+	state: {
+		loading: false
+	},
 
-    mutations: {
-        LOADING(state, loading) {
-            state.loading = loading;
-        }
-    }
+	mutations: {
+		LOADING(state, loading) {
+			state.loading = loading;
+		}
+	}
 };

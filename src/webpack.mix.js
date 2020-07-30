@@ -1,15 +1,18 @@
 let mix = require('laravel-mix');
-var browserSync = require("browser-sync");
-var spa = require("browser-sync-spa");
+var path = require('path');
 
-browserSync.use(spa());
-browserSync({
-    open: true
-});
+require('laravel-mix-eslint-config');
 
-
-
-
+var options = {
+    enforce: 'pre',
+    test: /\.(js|vue)$/,
+    exclude: /node_modules/,
+    loader: 'eslint-loader',
+    options: {
+        fix: true,
+        cache: false,
+    }
+};
 
 mix.webpackConfig({
     resolve: {
@@ -26,5 +29,5 @@ mix.webpackConfig({
     }
 });
 
-mix.js('resources/assets/js/app.js', 'public/js')
+mix.js('resources/assets/js/app.js', 'public/js').eslint(options)
     .copy('resources/assets/img/', 'public/img/');

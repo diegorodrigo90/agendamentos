@@ -1,8 +1,8 @@
-import { ACCESS_TOKEN } from "@/configs/configs";
+import { ACCESS_TOKEN } from '@/configs/configs';
 
 try {
-    // Usa o bootstrap JS no projeto (Opcional)
-    require("bootstrap");
+	// Usa o bootstrap JS no projeto (Opcional)
+	require('bootstrap');
 } catch (e) {}
 
 /**
@@ -10,8 +10,8 @@ try {
  * to our Laravel back-end. This library automatically handles sending the
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
-window.axios = require("axios");
-window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
+window.axios = require('axios');
+window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /**
  * Next we will register the CSRF Token as a common header with Axios so that
@@ -20,12 +20,12 @@ window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
  */
 let token = document.head.querySelector('meta[name="csrf-token"]');
 if (token) {
-    window.axios.defaults.headers.common["X-CSRF-TOKEN"] = token.content;
+	window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
 } else {
-    console.error(
-        "CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token"
-    );
+	console.error(
+		'CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token'
+	);
 }
 
 const tokenAcess = localStorage.getItem(ACCESS_TOKEN);
-window.axios.defaults.headers.common["Authorization"] = `Bearer ${tokenAcess}`;
+window.axios.defaults.headers.common['Authorization'] = `Bearer ${tokenAcess}`;

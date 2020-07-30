@@ -1,11 +1,11 @@
 <template>
-    <div>
-        #menu
+  <div>
+    #menu
 
-        <hr />
-        <router-view />
-        <hr />
+    <hr>
+    <router-view />
+    <hr>
 
-        #footer
-    </div>
+    #footer
+  </div>
 </template>
