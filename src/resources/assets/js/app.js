@@ -1,5 +1,6 @@
 // Recupera o arquivo com as configurações iniciais do projeto
 require('@/bootstrap');
+import vuetify from '@/plugins/vuetify' // path to vuetify export
 window.Vue = require('vue');
 
 
@@ -22,6 +23,7 @@ Vue.component(
 );
 // Instância do Vue JS, e seletor
 const app = new Vue({
+    vuetify,
 	router,
 	store,
 	el: '#app'

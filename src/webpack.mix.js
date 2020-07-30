@@ -15,6 +15,35 @@ var options = {
 };
 
 mix.webpackConfig({
+    module: {
+        rules: [{
+            test: /\.s(c|a)ss$/,
+            use: [
+                'vue-style-loader',
+                'css-loader',
+                {
+                    loader: 'sass-loader',
+                    // Requires sass-loader@^7.0.0
+                    options: {
+                        implementation: require('sass'),
+                        fiber: require('fibers'),
+                        indentedSyntax: true // optional
+                    },
+                    // Requires sass-loader@^8.0.0
+                    options: {
+                        implementation: require('sass'),
+                        sassOptions: {
+                            fiber: require('fibers'),
+                            indentedSyntax: true // optional
+                        },
+                    },
+                },
+            ],
+        }, ],
+    }
+});
+
+mix.webpackConfig({
     resolve: {
         alias: {
             "@": path.resolve(
@@ -25,9 +54,12 @@ mix.webpackConfig({
                 __dirname,
                 "resources/assets/sass"
             ),
-        }
+        },
     }
 });
 
-mix.js('resources/assets/js/app.js', 'public/js').eslint(options)
+mix.js('resources/assets/js/app.js', 'public/js')
     .copy('resources/assets/img/', 'public/img/');
+
+// mix.js('resources/assets/js/app.js', 'public/js').eslint(options)
+// .copy('resources/assets/img/', 'public/img/');

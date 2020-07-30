@@ -1,84 +1,93 @@
 <template>
-  <div class="container">
-    <h1>Login</h1>
-    <hr>
-
-    <div class="row">
-      <div class="col-md-8 mx-auto">
-        <div class="card card-default">
-          <div class="card-header">
-            Entrar
-          </div>
-          <div class="card-body">
-            <div
-              v-if="error"
-              class="alert alert-warning"
-              v-text="error"
-            />
-
-            <form
-              class="form"
-              @submit.prevent="login"
-            >
-              <div
-                class="form-group"
-                :class="{ 'has-error': errors.email }"
+  <v-app id="inspire">
+    <v-main>
+      <v-container
+        class="fill-height"
+        fluid
+      >
+        <v-row
+          align="center"
+          justify="center"
+        >
+          <v-col
+            cols="12"
+            sm="8"
+            md="4"
+          >
+            <v-card class="elevation-12">
+              <v-toolbar
+                color="primary"
+                dark
+                flat
               >
-                <input
-                  v-model="formData.email"
-                  type="email"
-                  class="form-control"
-                  placeholder="E-mail"
-                >
-                <div
-                  v-if="errors.email"
-                  class="help-block"
-                >
-                  <div
-                    v-for="(error, index) in errors.email"
-                    :key="index"
-                  >
-                    <strong>{{ error }}</strong>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="form-group"
-                :class="{ 'has-error': errors.email }"
-              >
-                <input
-                  v-model="formData.password"
-                  type="password"
-                  class="form-control"
-                  placeholder="Senha"
-                >
-                <div
-                  v-for="(error, index) in errors.password"
-                  :key="index"
-                >
-                  <strong>{{ error }}</strong>
-                </div>
-              </div>
-              <div class="form-group">
-                <button
-                  type="submit"
-                  class="btn btn-success"
-                >
-                  Entrar
-                </button>
-              </div>
-            </form>
-            <!--Form-->
-          </div>
-          <!--panel-body-->
-        </div>
-        <!--panel-->
-      </div>
-      <!--col-->
-    </div>
-    <!--row-->
-  </div>
+                <v-toolbar-title>Login form</v-toolbar-title>
+                <v-spacer></v-spacer>
+                <v-tooltip bottom>
+                  <template v-slot:activator="{ on }">
+                    <v-btn
+                      :href="source"
+                      icon
+                      large
+                      target="_blank"
+                      v-on="on"
+                    >
+                      <v-icon>mdi-code-tags</v-icon>
+                    </v-btn>
+                  </template>
+                  <span>Source</span>
+                </v-tooltip>
+              </v-toolbar>
+              <v-card-text>
+                <v-form v-model="isValid"  @submit.prevent="login">
+                  <v-text-field
+                    label="E-mail"
+                    v-model="formData.email"
+                    name="email"
+                    prepend-icon="mdi-account"
+                    type="email"
+                    :rules="emailRules"
+                    required
+                  ></v-text-field>
+
+                  <v-text-field
+                    id="password"
+                    v-model="formData.password"
+                    label="Password"
+                    name="password"
+                    prepend-icon="mdi-lock"
+                    type="password"
+                     :rules="passwordRules"
+                    required
+                  ></v-text-field>
+
+<v-card-actions>
+    <v-btn type="submit"
+    color="primary" 
+    :disabled="!isValid"
+    >Login</v-btn>
+</v-card-actions>
+
+                </v-form>
+              </v-card-text>
+              
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-main>
+  </v-app>
 </template>
+
+
+
+
+
+
+
+
+
+
+
 
 <script>
 export default {
@@ -88,6 +97,7 @@ export default {
 				email:    '',
 				password: ''
 			},
+      isValid: true,
 			errors: {},
 			error:  ''
 		};
