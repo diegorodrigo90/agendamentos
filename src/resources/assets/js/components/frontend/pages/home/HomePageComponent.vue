@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Home page do site</h1>
+    <h1>{{ $t('REASON_CODES.forgot_password_used') }}</h1>
   </div>
 </template>
 

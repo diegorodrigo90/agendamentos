@@ -80,7 +80,9 @@ return [
     |
     */
 
-    'locale' => 'pt-BR',
+    // 'locale' => 'pt-BR',
+    'locale' => env('LOCALE', 'en'),
+
 
     /*
     |--------------------------------------------------------------------------
@@ -93,7 +95,9 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    // 'fallback_locale' => 'en',
+    'fallback_locale' => env('FALLBACK_LOCALE', 'en'),
+
 
     /*
     |--------------------------------------------------------------------------
