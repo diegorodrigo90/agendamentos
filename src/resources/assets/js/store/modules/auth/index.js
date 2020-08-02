@@ -1,12 +1,12 @@
 import axios from 'axios';
-import { URL_BASE, ACCESS_TOKEN } from '@/configs/configs';
+import { URL_BASE, ACCESS_TOKEN, USER } from '@/configs/configs';
 
 const RESOURCE = 'auth/';
 
 const state = {
 	token:         localStorage.getItem(ACCESS_TOKEN) || '',
 	authenticated: !!localStorage.getItem(ACCESS_TOKEN),
-	user:          {}
+	user:          JSON.parse(localStorage.getItem(USER)) || ''
 };
 
 const mutations = {
@@ -16,6 +16,7 @@ const mutations = {
 		state.authenticated = true;
 	},
 	AUTH_USER(state, user) {
+		localStorage.setItem(USER, JSON.stringify(user));
 		state.user = user;
 	},
 	AUTH_USER_LOGOUT(state) {

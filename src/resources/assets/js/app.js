@@ -42,14 +42,13 @@ Vue.component(
 
 Vue.component(
 	'SidebarComponent',
-	require('@/components/admin/pages/dashboard/SidebarComponent').default
+	require('@/components/admin/pages/dashboard/SidebarComponent').default,
 
 );
 
 Vue.component(
 	'ToolbarComponent',
 	require('@/components/admin/pages/dashboard/ToolbarComponent').default
-
 );
 
 

@@ -1,11 +1,6 @@
 <template>
   <v-app>
-    <toolbar-component
-      :color="$refs.color"
-      menu
-      @toggle-drawer="$refs.drawer.drawer = !$refs.drawer.drawer"
-    />
-    <sidebar-component ref="drawer" />
+    <toolbar-component />
     <transition>
       <keep-alive>
         <router-view />

@@ -7,7 +7,7 @@ export default {
 	created() {
 		this.$store.dispatch('logout');
 		this.$snotify.success('Sucesso ao deslogar', 'logout...');
-		this.$router.push({ name: 'auth' });
+		this.$router.push({ name: 'dashboard' });
 	}
 
 };
