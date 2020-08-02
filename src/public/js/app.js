@@ -2238,18 +2238,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      title: 'Agendamento',
+      title: this.$store.state.config.app_name,
       drawer: false,
       items: [{
         title: 'Dashboard',
@@ -23966,28 +23958,11 @@ var render = function() {
             { staticClass: "py-0", attrs: { dense: "", nav: "" } },
             [
               _c(
-                "v-list-item",
-                { attrs: { "two-line": "" } },
+                "v-list-item-content",
                 [
-                  _c("v-list-item-avatar", [
-                    _c("img", {
-                      attrs: {
-                        src: "https://randomuser.me/api/portraits/men/81.jpg"
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "v-list-item-content",
-                    [
-                      _c("v-list-item-title", [
-                        _vm._v(" " + _vm._s(_vm.title) + " ")
-                      ]),
-                      _vm._v(" "),
-                      _c("v-list-item-subtitle", [_vm._v("Subtext")])
-                    ],
-                    1
-                  )
+                  _c("v-list-item-title", [
+                    _vm._v(" " + _vm._s(_vm.title) + " ")
+                  ])
                 ],
                 1
               ),
@@ -24065,7 +24040,18 @@ var render = function() {
             return _vm.$emit("toggle-drawer")
           }
         }
-      })
+      }),
+      _vm._v(" "),
+      _c("v-toolbar-items", [
+        _c("img", {
+          staticStyle: { height: "inherit", padding: "10px" },
+          attrs: { src: __webpack_require__(/*! @assets/img/calendar-logo.png */ "./resources/assets/img/calendar-logo.png") }
+        })
+      ]),
+      _vm._v(" "),
+      _c("h5", [
+        _vm._v("\n    " + _vm._s(this.$store.state.config.app_name) + "\n  ")
+      ])
     ],
     1
   )
@@ -86436,6 +86422,17 @@ module.exports = g;
 
 /***/ }),
 
+/***/ "./resources/assets/img/calendar-logo.png":
+/*!************************************************!*\
+  !*** ./resources/assets/img/calendar-logo.png ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/calendar-logo.png?e85e3fea123bbca53ffe3023ec1df5b3";
+
+/***/ }),
+
 /***/ "./resources/assets/js/app.js":
 /*!************************************!*\
   !*** ./resources/assets/js/app.js ***!
@@ -87177,15 +87174,17 @@ __webpack_require__.r(__webpack_exports__);
 /*!************************************************!*\
   !*** ./resources/assets/js/configs/configs.js ***!
   \************************************************/
-/*! exports provided: URL_BASE, ACCESS_TOKEN */
+/*! exports provided: URL_BASE, ACCESS_TOKEN, APP_NAME */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "URL_BASE", function() { return URL_BASE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ACCESS_TOKEN", function() { return ACCESS_TOKEN; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "APP_NAME", function() { return APP_NAME; });
 var URL_BASE = '/api/v1/';
 var ACCESS_TOKEN = 'access_token';
+var APP_NAME = window.app_name;
 
 /***/ }),
 
@@ -87291,6 +87290,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   mode: 'history'
 });
 router.beforeEach(function (to, from, next) {
+  console.log(_store__WEBPACK_IMPORTED_MODULE_2__["default"].state.config.app_name);
   var isAuthenticated = _store__WEBPACK_IMPORTED_MODULE_2__["default"].state.auth.authenticated;
   var title = to.meta.title ? to.meta.title + ' - ' + document.title : document.title;
   document.title = title;
@@ -87414,6 +87414,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex_persistedstate__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex-persistedstate */ "./node_modules/vuex-persistedstate/dist/vuex-persistedstate.es.js");
 /* harmony import */ var _store_modules_preloader___WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/store/modules/preloader/ */ "./resources/assets/js/store/modules/preloader/index.js");
 /* harmony import */ var _store_modules_auth___WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/store/modules/auth/ */ "./resources/assets/js/store/modules/auth/index.js");
+/* harmony import */ var _store_modules_config___WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/store/modules/config/ */ "./resources/assets/js/store/modules/config/index.js");
+
 
 
 
@@ -87424,6 +87426,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
   modules: {
     preloader: _store_modules_preloader___WEBPACK_IMPORTED_MODULE_3__["default"],
     auth: _store_modules_auth___WEBPACK_IMPORTED_MODULE_4__["default"],
+    config: _store_modules_config___WEBPACK_IMPORTED_MODULE_5__["default"],
     plugins: [Object(vuex_persistedstate__WEBPACK_IMPORTED_MODULE_2__["default"])({
       storage: window.sessionStorage
     })]
@@ -87518,6 +87521,26 @@ var actions = {
   state: state,
   mutations: mutations,
   actions: actions
+});
+
+/***/ }),
+
+/***/ "./resources/assets/js/store/modules/config/index.js":
+/*!***********************************************************!*\
+  !*** ./resources/assets/js/store/modules/config/index.js ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _configs_configs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/configs/configs */ "./resources/assets/js/configs/configs.js");
+
+var state = {
+  app_name: localStorage.getItem(_configs_configs__WEBPACK_IMPORTED_MODULE_0__["APP_NAME"]) || ''
+};
+/* harmony default export */ __webpack_exports__["default"] = ({
+  state: state
 });
 
 /***/ }),

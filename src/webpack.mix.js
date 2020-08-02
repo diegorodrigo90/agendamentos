@@ -54,6 +54,10 @@ mix.webpackConfig({
                 __dirname,
                 "resources/assets/sass"
             ),
+            "@assets": path.resolve(
+                __dirname,
+                "resources/assets"
+            ),
         },
     }
 });

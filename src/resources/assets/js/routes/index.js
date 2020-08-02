@@ -13,7 +13,7 @@ const router = new Router({
 });
 
 router.beforeEach((to, from, next) => {
-
+	console.log(store.state.config.app_name);
 	let isAuthenticated = store.state.auth.authenticated;
 	let title = (to.meta.title) ? to.meta.title + ' - ' + document.title : document.title;
 	document.title = title;

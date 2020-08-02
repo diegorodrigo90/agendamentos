@@ -19,6 +19,7 @@
     <script>
         window.locale = '{{ env('LOCALE', 'en'), }}';
         window.fallback_locale = '{{ env('FALLBACK_LOCALE', 'en'), }}';
+        window.app_name = '{{ env('APP_NAME', 'Sistema de agendamento'), }}';
     </script>
     <script src="{{ url('js/app.js') }}"></script>
 

@@ -14,17 +14,9 @@
         nav
         class="py-0"
       >
-        <v-list-item two-line>
-          <v-list-item-avatar>
-            <img
-              src="https://randomuser.me/api/portraits/men/81.jpg"
-            >
-          </v-list-item-avatar>
-
-          <v-list-item-content>
-            <v-list-item-title> {{ title }} </v-list-item-title>
-            <v-list-item-subtitle>Subtext</v-list-item-subtitle>
-          </v-list-item-content>
+        <v-list-item-content>
+          <v-list-item-title> {{ title }} </v-list-item-title>
+        </v-list-item-content>
         </v-list-item>
 
         <v-divider />
@@ -53,7 +45,7 @@
 export default {
 	data() {
 		return {
-			title:  'Agendamento',
+			title:  this.$store.state.config.app_name,
 			drawer: false,
 			items:  [
 				{ title: 'Dashboard', icon: 'mdi-view-dashboard' },
