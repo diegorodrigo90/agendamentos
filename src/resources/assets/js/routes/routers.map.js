@@ -13,12 +13,17 @@ export default [
 
 	{
 		path:      '/',
-		component: HomePageComponent,
-		name:      'home',
-		meta:      {
-			title: 'Página inicial',
-		},
+		component: AdminComponent,
+		children:  [{
+			path:      '',
+			component: HomePageComponent,
+			name:      'home',
+			meta:      {
+				title: 'Página inicial',
+			},
+		}]
 	},
+
 
 	/**
      * Rotas Autenticação

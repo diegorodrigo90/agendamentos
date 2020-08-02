@@ -3,6 +3,7 @@ require('@/bootstrap');
 import VueI18n from 'vue-i18n';
 import '@mdi/font/css/materialdesignicons.css';
 import vuetify from '@/plugins/vuetify'; // path to vuetify export
+import vClickOutside from 'v-click-outside';
 window.Vue = require('vue');
 
 let messages = require('@/i18n/');
@@ -28,13 +29,29 @@ const i18n = new VueI18n({
 
 Vue.use(VueSwal);
 
+Vue.use(vClickOutside);
+
 /**
  * Cria os componentes globais
  */
 Vue.component(
 	'PreloaderComponent',
 	require('@/components/layouts/PreloaderComponent').default
+
 );
+
+Vue.component(
+	'SidebarComponent',
+	require('@/components/admin/pages/dashboard/SidebarComponent').default
+
+);
+
+Vue.component(
+	'ToolbarComponent',
+	require('@/components/admin/pages/dashboard/ToolbarComponent').default
+
+);
+
 
 // Instância do Vue JS, e seletor
 const app = new Vue({
