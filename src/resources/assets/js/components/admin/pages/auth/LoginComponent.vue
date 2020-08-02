@@ -21,33 +21,20 @@
                 flat
               >
                 <v-toolbar-title>Login form</v-toolbar-title>
-                <v-spacer></v-spacer>
-                <v-tooltip bottom>
-                  <template v-slot:activator="{ on }">
-                    <v-btn
-                      :href="source"
-                      icon
-                      large
-                      target="_blank"
-                      v-on="on"
-                    >
-                      <v-icon>mdi-code-tags</v-icon>
-                    </v-btn>
-                  </template>
-                  <span>Source</span>
-                </v-tooltip>
               </v-toolbar>
               <v-card-text>
-                <v-form v-model="isValid"  @submit.prevent="login">
+                <v-form
+                  v-model="isValid"
+                  @submit.prevent="login"
+                >
                   <v-text-field
-                    label="E-mail"
                     v-model="formData.email"
+                    label="E-mail"
                     name="email"
                     prepend-icon="mdi-account"
                     type="email"
-                    :rules="emailRules"
-                    required
-                  ></v-text-field>
+                    :rules="emailValidation"
+                  />
 
                   <v-text-field
                     id="password"
@@ -56,20 +43,20 @@
                     name="password"
                     prepend-icon="mdi-lock"
                     type="password"
-                     :rules="passwordRules"
-                    required
-                  ></v-text-field>
+                    :rules="passwordValidation"
+                  />
 
-<v-card-actions>
-    <v-btn type="submit"
-    color="primary" 
-    :disabled="!isValid"
-    >Login</v-btn>
-</v-card-actions>
-
+                  <v-card-actions>
+                    <v-btn
+                      type="submit"
+                      color="primary"
+                      :disabled="!isValid"
+                    >
+                      Login
+                    </v-btn>
+                  </v-card-actions>
                 </v-form>
               </v-card-text>
-              
             </v-card>
           </v-col>
         </v-row>
@@ -78,18 +65,8 @@
   </v-app>
 </template>
 
-
-
-
-
-
-
-
-
-
-
-
 <script>
+import { emailRules, passwordRules } from '@/validators';
 export default {
 	data() {
 		return {
@@ -97,9 +74,10 @@ export default {
 				email:    '',
 				password: ''
 			},
-      isValid: true,
-			errors: {},
-			error:  ''
+
+			emailValidation:    emailRules,
+			passwordValidation: passwordRules,
+			isValid:            true
 		};
 	},
 	methods: {
@@ -110,9 +88,8 @@ export default {
 					this.$snotify.success('Sucesso ao logar', 'OK');
 					this.$router.push({ name: 'dashboard' });
 				})
-				.catch(response => {
-					this.error = response.error;
-					this.$snotify.error('Falha...', 'Erro');
+				.catch(() => {
+					this.$snotify.error('Falha ao logar', 'Erro');
 				});
 		}
 	}

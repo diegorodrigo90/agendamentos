@@ -1,8 +1,10 @@
-import { ACCESS_TOKEN } from '@/configs/configs';
+import {
+	ACCESS_TOKEN
+} from '@/configs/configs';
 
 try {
-	// Usa o bootstrap JS no projeto (Opcional)
 	require('bootstrap');
+	// Usa o bootstrap JS no projeto (Opcional)
 } catch (e) {}
 
 /**

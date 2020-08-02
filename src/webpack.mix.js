@@ -58,8 +58,8 @@ mix.webpackConfig({
     }
 });
 
-mix.js('resources/assets/js/app.js', 'public/js')
-    .copy('resources/assets/img/', 'public/img/');
+// mix.js('resources/assets/js/app.js', 'public/js')
+//     .copy('resources/assets/img/', 'public/img/');
 
-// mix.js('resources/assets/js/app.js', 'public/js').eslint(options)
-// .copy('resources/assets/img/', 'public/img/');
+mix.js('resources/assets/js/app.js', 'public/js').eslint(options)
+.copy('resources/assets/img/', 'public/img/');

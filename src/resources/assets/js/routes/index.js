@@ -1,10 +1,11 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-
-import routes from '@/routes/routers.map';
 import store from '@/store';
 
+import routes from '@/routes/routers.map';
+
 Vue.use(Router);
+
 
 const router = new Router({
 	routes,
@@ -12,15 +13,32 @@ const router = new Router({
 });
 
 router.beforeEach((to, from, next) => {
-	const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
-	const authenticated = store.state.auth.authenticated;
-	if (requiresAuth && !authenticated) {
-		return router.push({ name: 'login' }).catch(err => { });
-	} else if (requiresAuth && authenticated) {
-		next();
+
+	let isAuthenticated = store.state.auth.authenticated;
+	let title = (to.meta.title) ? to.meta.title + ' - ' + document.title : document.title;
+	document.title = title;
+
+	if (to.name == 'login' && isAuthenticated) {
+		next({
+			name: 'home'
+		});
+	}
+
+	if (to.matched.some(record => record.meta.requiresAuth)) {
+		// this route requires auth, check if logged in
+		// if not, redirect to login page.
+		if (!isAuthenticated) {
+			next({
+				name: 'login'
+			});
+
+		} else {
+			next();
+		}
 	} else {
-		next();
+		next(); // make sure to always call next()!
 	}
 });
+
 
 export default router;

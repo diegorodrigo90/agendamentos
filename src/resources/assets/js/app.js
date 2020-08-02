@@ -1,6 +1,7 @@
 // Recupera o arquivo com as configurações iniciais do projeto
 require('@/bootstrap');
-import vuetify from '@/plugins/vuetify' // path to vuetify export
+import '@mdi/font/css/materialdesignicons.css';
+import vuetify from '@/plugins/vuetify'; // path to vuetify export
 window.Vue = require('vue');
 
 
@@ -11,7 +12,11 @@ import router from '@/routes';
 import store from '@/store';
 
 
-Vue.use(Snotify, { toast: { showProgressBar: false } });
+Vue.use(Snotify, {
+	toast: {
+		showProgressBar: false
+	}
+});
 Vue.use(VueSwal);
 
 /**
@@ -23,13 +28,8 @@ Vue.component(
 );
 // Instância do Vue JS, e seletor
 const app = new Vue({
-    vuetify,
+	vuetify,
 	router,
 	store,
 	el: '#app'
 });
-
-store
-	.dispatch('checkLogin')
-	.then(() => router.push({ name: 'dashboard' }))
-	.catch(error => router.push({ name: 'login' }));

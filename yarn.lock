@@ -6,3 +6,8 @@ laravel-mix-eslint-config@^0.1.7:
   version "0.1.7"
   resolved "https://registry.yarnpkg.com/laravel-mix-eslint-config/-/laravel-mix-eslint-config-0.1.7.tgz#591c9813ccab2e9fb1b24f76b5165c2a1c903d9f"
   integrity sha512-QbtWUD0zrQJ6V2VVYzhVXyk3smTYqwKIsJP9blGNThi9U3l+ALh8qOHt1WeQ4NXZmMnWeM5t+lXYQDywhPNKCg==
+
+vuelidate@^0.7.5:
+  version "0.7.5"
+  resolved "https://registry.yarnpkg.com/vuelidate/-/vuelidate-0.7.5.tgz#ff48c75ae9d24ea24c24e9ea08065eda0a0cba0a"
+  integrity sha512-GAAG8QAFVp7BFeQlNaThpTbimq3+HypBPNwdkCkHZZeVaD5zmXXfhp357dcUJXHXTZjSln0PvP6wiwLZXkFTwg==
