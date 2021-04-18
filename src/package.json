@@ -49,7 +49,7 @@
         "v-click-outside": "^3.0.1",
         "vodal": "^2.4.0",
         "vue-chartjs": "^3.5.0",
-        "vue-i18n": "^8.20.0",
+        "vue-i18n": "^8.24.2",
         "vue-picture-input": "^2.1.6",
         "vue-router": "^3.3.4",
         "vue-snotify": "^3.2.1",
